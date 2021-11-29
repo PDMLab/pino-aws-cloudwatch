@@ -1,10 +1,10 @@
 {
-  "name": "pino-cloudwatch",
+  "name": "pino-aws-cloudwatch",
   "version": "0.7.0",
   "description": "CloudWatch Logs transport for pino",
   "main": "index.js",
   "bin": {
-    "pino-cloudwatch": "bin/pino-cloudwatch.js"
+    "pino-aws-cloudwatch": "bin/pino-aws-cloudwatch.js"
   },
   "scripts": {
     "test": "mocha test/specs/*",
@@ -19,9 +19,9 @@
   "author": "David Howell (david@dynamicmethods.com.au)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dbhowell/pino-cloudwatch/issues"
+    "url": "https://github.com/dbhowell/pino-aws-cloudwatch/issues"
   },
-  "homepage": "https://github.com/dbhowell/pino-cloudwatch#readme",
+  "homepage": "https://github.com/dbhowell/pino-aws-cloudwatch#readme",
   "dependencies": {
     "async": "^3.2.0",
     "aws-sdk": "^2.668.0",
