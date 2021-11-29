@@ -1,5 +1,7 @@
 # pino-aws-cloudwatch
 
+This is a fork of [pino-cloudwatch](https://github.com/dbhowell/pino-cloudwatch).
+
 #### Send pino logs to AWS CloudWatch Logs.
 
 ## About
