@@ -1,10 +1,10 @@
 {
-  "name": "pino-cloudwatch",
+  "name": "pino-aws-cloudwatch",
   "version": "0.7.0",
   "description": "CloudWatch Logs transport for pino",
   "main": "index.js",
   "bin": {
-    "pino-cloudwatch": "bin/pino-cloudwatch.js"
+    "pino-cloudwatch": "bin/pino-aws-cloudwatch.js"
   },
   "scripts": {
     "test": "mocha test/specs/*",
@@ -16,12 +16,15 @@
     "logs",
     "logger"
   ],
-  "author": "David Howell (david@dynamicmethods.com.au)",
+  "author": "Alexander Zeitler<alexander.zeitler@pdmlab.com>",
+  "contributors": [
+    "David Howell (david@dynamicmethods.com.au)"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dbhowell/pino-cloudwatch/issues"
+    "url": "https://github.com/PDMLab/pino-aws-cloudwatch/issues"
   },
-  "homepage": "https://github.com/dbhowell/pino-cloudwatch#readme",
+  "homepage": "https://github.com/PDMLab/pino-aws-cloudwatch#readme",
   "dependencies": {
     "async": "^3.2.0",
     "aws-sdk": "^2.668.0",

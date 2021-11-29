@@ -1,10 +1,12 @@
-# pino-cloudwatch
+# pino-aws-cloudwatch
+
+This is a fork of [pino-cloudwatch](https://github.com/dbhowell/pino-cloudwatch).
 
 #### Send pino logs to AWS CloudWatch Logs.
 
 ## About
 
-`pino-cloudwatch` is a simple [pino](https://getpino.io/#/) transport that buffers and holds [pino](https://getpino.io/#/) logs until one of the following conditions are met:
+`pino-aws-cloudwatch` is a simple [pino](https://getpino.io/#/) transport that buffers and holds [pino](https://getpino.io/#/) logs until one of the following conditions are met:
   * the number of logs reaches 10,000
   * the 'size' of the logs reaches 1,048,576 bytes OR
   * there is at least 1 log buffered and 1,000ms (default) has passed without another log item being buffered
@@ -18,9 +20,9 @@ The log group name is specified via the CLI (`--prefix`) and the log stream name
 
 ## Usage
 ```
-# ./bin/pino-cloudwatch.js
+# ./bin/pino-aws-cloudwatch.js
 Sends pino logs to AWS CloudWatch Logs.
-Usage: node index.js | pino-cloudwatch [options]
+Usage: node index.js | pino-aws-cloudwatch [options]
 
 Options:
   --help                   Show help                                   [boolean]
@@ -64,7 +66,7 @@ This module can be required and used as a writable stream:
 ```javascript
 var pump = require('pump');
 var split = require('split2');
-var pinoCloudWatch = require('pino-cloudwatch');
+var pinoCloudWatch = require('pino-aws-cloudwatch');
 
 pump(process.stdin, split(), pinoCloudWatch({ group: 'test' }));
 
@@ -72,14 +74,14 @@ pump(process.stdin, split(), pinoCloudWatch({ group: 'test' }));
 
 #### Writeable Stream Events
 
-Since pino-cloudwatch returns a writable stream, you can attach event handlers like any other writeable stream (see https://nodejs.org/dist/v10.19.0/docs/api/stream.html#stream_writable_streams).
+Since pino-aws-cloudwatch returns a writable stream, you can attach event handlers like any other writeable stream (see https://nodejs.org/dist/v10.19.0/docs/api/stream.html#stream_writable_streams).
 
 In addition, a `flushed` event is emitted once the logs are successfully pushed / saved in AWS CloudWatch Logs.
 
 ```javascript
 var pump = require('pump');
 var split = require('split2');
-var pinoCloudWatch = require('pino-cloudwatch');
+var pinoCloudWatch = require('pino-aws-cloudwatch');
 var streamToCloudWatch = pinoCloudWatch({ group: 'test' });
 
 streamToCloudWatch.on('flushed', function () {
@@ -91,7 +93,7 @@ pump(process.stdin, split(), pinoCloudWatch({ group: 'test' }));
 
 ### Arbitrary logs
 
-Technically `pino-cloudwatch` can send any object mode stream to CloudWatch Logs. This includes *any* text-based log file. For example: tailing a standard log file like nginx access.log.
+Technically `pino-aws-cloudwatch` can send any object mode stream to CloudWatch Logs. This includes *any* text-based log file. For example: tailing a standard log file like nginx access.log.
 
 ## Test
 ```
